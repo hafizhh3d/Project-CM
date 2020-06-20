@@ -25,6 +25,32 @@ void menu()
 	cout << "Input Option : ";
 }
 
+//===================================================//
+//                determinantCalc()                  //
+//                 Input = None                      //
+//                 Output = Show Menu for Determinant// 
+//                          Calculation              //
+//                                                   //
+// This Function will display the menu for the user  //
+// to choose which Determinant Calculation they want //
+// the program to calculate.                         //
+//===================================================//
+
+void determinantCalc()
+{
+	int choice; // Variable for Choice
+
+	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
+	cout << "  Determinant Calculation  " << endl;
+	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl << endl;
+	
+	cout << "1. 2x2" << endl;
+	cout << "2. 3x3" << endl << endl;
+	
+	cout << "Choose the Dimensions : ";
+	cin >> choice; // User Input for Choice
+}
+
 int main ()
 {
 	int choice; // Variable for Choice
@@ -57,8 +83,7 @@ int main ()
 		switch (choice)
 		{
 			case 1 :
-				cout << "CALCULATING DETERMINANT !!!!" << endl << endl; // JUST TEMPORARY, DELETE AFTER THE FUNCITON WORKING COMPLETELY
-				// determinantCalc(); // Calling Function determinantCalc
+				determinantCalc(); // Calling Function determinantCalc
 				system("pause"); // Pausing the Program
 				break;
 			case 2 :
