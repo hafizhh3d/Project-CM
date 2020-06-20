@@ -164,7 +164,20 @@ void determinantCalc()
 			cout << "Input Not Recogized" << endl;
 			system("pause"); // Pausing the Program
 			break;
-	}	
+	}
+}	
+//===================================================//
+//                     factorLU()                    //
+//                 Input = None                      //
+//                 Output = ...                      //
+//                                                   //
+// ...                                               //
+// ...                                               //
+//===================================================//
+
+void factorLU()
+{
+	
 }
 
 int main ()
@@ -231,5 +244,7 @@ int main ()
 		}
 	} while (choice != 4);
 	
+	cout << "\n";
+	system("pause");
 	return 0;
 }
