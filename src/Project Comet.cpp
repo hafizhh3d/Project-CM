@@ -171,13 +171,13 @@ void determinantCalc()
 //                 Input = None                      //
 //                 Output = ...                      //
 //                                                   //
-// ...                                               //
+// Using Doolittle method                            //
 // ...                                               //
 //===================================================//
 
 void factorLU()
 {
-	
+
 }
 
 int main ()
