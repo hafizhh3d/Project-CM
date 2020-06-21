@@ -240,6 +240,12 @@ void factorLU()
         }
         std::cout << "\n";
     }
+
+    double y[n];
+    y[0] = lower[0][0] * b[0];
+    y[1] = b[1] - (lower[1][0] * y[0]);
+    y[2] = b[2] - (lower[2][0] * y[0]) - (lower[2][1] * y[1]);
+    // std::cout << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
 }
 
 int main ()
