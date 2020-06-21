@@ -26,6 +26,50 @@ void menu()
 }
 
 //===================================================//
+//                   calc2x2()                       //
+//                 Input = None                      //
+//                 Output = Calculate 2x2 Matrix     // 
+//                          Determinant & Display    //
+//                          them                     //
+//                                                   //
+// This Function will calculate the determinant of a //
+// 2x2 Matrix and display the value of the           //
+// calculation on the screen.
+//===================================================//
+
+void calc2x2()
+{
+	double num[4]; // Variable for Metrix Index
+	double det; // Variable for Determinant
+	
+	cout << endl;
+	cout << "===========================" << endl;
+	cout << "Calculating 2x2 Determinant" << endl;
+	cout << "===========================" << endl << endl;
+	
+	cout << "[a b]" << endl;
+	cout << "[c d]" << endl << endl;
+	
+	cout << "Example Input :" << endl;
+	cout << "1 2" << endl;
+	cout << "3 4" << endl;
+	
+	cout << endl << endl << "Please input the number based on the example above";
+	cout << " (Ignore the [], Number can be Integer or Fraction) : " << endl;
+	cin >> num[0] >> num[1];
+	cin >> num[2] >> num[3];
+	cout << endl;
+	
+	det = ((num[0]*num[3]) - (num[1]*num[2])); // Calculating Determinant
+	
+	cout << endl << left;
+	cout << "Matrix : " << setw(2) << "[" << setw(3) << num[0] << " " << setw(2) << num[1] << setw(2) << "]" << endl;
+	cout << "         " << setw(2) << "[" << setw(3) << num[2] << " " << setw(2) << num[3] << setw(2) << "]" << endl << endl;
+	
+	cout << "Determinant = " << det << endl << endl; // Displaying Determinant
+}
+
+//===================================================//
 //                determinantCalc()                  //
 //                 Input = None                      //
 //                 Output = Show Menu for Determinant// 
@@ -49,6 +93,32 @@ void determinantCalc()
 	
 	cout << "Choose the Dimensions : ";
 	cin >> choice; // User Input for Choice
+	cout << endl;
+	
+	//------------------------------------------//
+	//               Switch Case                //
+	//                                          //
+	// This Switch Case will take the user to   //
+	// their desired choice, and will show error//
+	// if the user input choice other than      //
+	// what is provided.                        //
+	//------------------------------------------//
+	
+	switch (choice)
+	{
+		case 1 :
+			calc2x2(); // Calling Function calc2x2
+			break;
+		case 2 :
+			cout << "3x3 CALCULATED!!!" << endl;
+			// calc3x3();
+			system("pause"); // Pausing the Program
+			break;
+		default :
+			cout << "Input Not Recogized" << endl;
+			system("pause"); // Pausing the Program
+			break;
+	}	
 }
 
 int main ()
