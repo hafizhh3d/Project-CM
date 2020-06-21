@@ -177,7 +177,69 @@ void determinantCalc()
 
 void factorLU()
 {
+	const int n = 3;
+	double matrix[n][n] = {{1, 2, 1},
+                        {3, 1, 1},
+                        {1, 4, 2}};
+    double b[n] = {8, 11, 14};
+	double lower[n][n];
+	double upper[n][n];
+    for(int i = 0; i < n; ++i)
+    {
+        for(int j = 0; j < n; ++j)
+        {
+            lower[i][j] = 0;
+            upper[i][j] = 0;
+        }
+    }
+    
+	for(int i = 0; i < n; i-=-1)
+	{
+		//upper
+		for(int k = i; k < n; ++k)
+		{
+			double sum = 0;
+			for(int j = 0; j < i; ++j)
+			{
+				sum += lower[i][j] * upper[j][k];
+			}
+			upper[i][k] = matrix[i][k] - sum;
+		}
+		//lower
+		for(int k = i; k < n; ++k)
+		{
+			if(i == k) { lower[i][i] = 1; }
+			else
+			{
+				double sum = 0;
+				for(int j = 0; j < i; ++j)
+				{
+					sum += lower[k][j] * upper[j][i];
+				}
+				lower[k][i] = (matrix[k][i] - sum) / upper[i][i];
+			}
+		}
+	}
+    
+    std::cout << std::setw(6) << "   Lower Triangular"
+              << std::setw(32) << "Upper Triangular\n";
 
+    for(int i = 0; i < n; ++i)
+    {
+        //lower
+        for(int j = 0; j < n; ++j)
+        {
+            std::cout << std::setw(6) << lower[i][j] << "\t";
+        }
+        std::cout << "\t";
+
+        //upper
+        for(int j = 0; j < n; ++j)
+        {
+            std::cout << std::setw(6) << upper[i][j] << "\t";
+        }
+        std::cout << "\n";
+    }
 }
 
 int main ()
