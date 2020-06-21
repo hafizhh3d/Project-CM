@@ -188,7 +188,33 @@ void factorLU()
 	cout << " ax1 + bx2 + cx3 = d\n"
 		 << " ex1 + fx2 + gx3 = h\n"
 		 << " ix1 + jx2 + kx3 = l\n";
-		 
+
+	cout << "Input a: ";
+	cin >> matrix[0][0];
+	cout << "Input b: ";
+	cin >> matrix[0][1];
+	cout << "Input c: ";
+	cin >> matrix[0][2];
+	cout << "Input d: ";
+	cin >> b[0];
+	cout << "Input e: ";
+	cin >> matrix[1][0];
+	cout << "Input f: ";
+	cin >> matrix[1][1];
+	cout << "Input g: ";
+	cin >> matrix[1][2];
+	cout << "Input h: ";
+	cin >> b[1];
+	cout << "Input i: ";
+	cin >> matrix[2][0];
+	cout << "Input j: ";
+	cin >> matrix[2][1];		 
+	cout << "Input k: ";
+	cin >> matrix[2][2];
+	cout << "Input l: ";
+	cin >> b[2];
+	cout << "\n";
+
     for(int i = 0; i < n; ++i)
     {
         for(int j = 0; j < n; ++j)
@@ -250,13 +276,13 @@ void factorLU()
     y[0] = lower[0][0] * b[0];
     y[1] = b[1] - (lower[1][0] * y[0]);
     y[2] = b[2] - (lower[2][0] * y[0]) - (lower[2][1] * y[1]);
-    // std::cout << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
+    cout << "y: " << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
 
 	double x[n];
 	x[2] = y[2] / upper[2][2];
 	x[1] = (y[1] - (upper[1][2] * x[2])) / upper[1][1];
     x[0] = (y[0] - (upper[0][1] * x[1]) - (upper[0][2] * x[2])) / upper[0][0];
-    // std::cout << x[0] << "\t" << x[1] << "\t" << x[2] << "\n\n"; //x check
+    cout << "x: " << x[0] << "\t" << x[1] << "\t" << x[2] << "\n\n"; //x check
 }
 
 int main ()
@@ -296,7 +322,7 @@ int main ()
 				break;
 			case 2 :
 				cout << "FACTORIZATING LU!!!" << endl << endl; // JUST TEMPORARY, DELETE AFTER THE FUNCITON WORKING COMPLETELY
-				// factorLU(); // Calling Function factorLU
+				factorLU(); // Calling Function factorLU
 				system("pause"); // Pausing the Program
 				break;
 			case 3 :
