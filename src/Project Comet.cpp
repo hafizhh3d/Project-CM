@@ -246,6 +246,12 @@ void factorLU()
     y[1] = b[1] - (lower[1][0] * y[0]);
     y[2] = b[2] - (lower[2][0] * y[0]) - (lower[2][1] * y[1]);
     // std::cout << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
+
+	double x[n];
+	x[2] = y[2] / upper[2][2];
+	x[1] = (y[1] - (upper[1][2] * x[2])) / upper[1][1];
+    x[0] = (y[0] - (upper[0][1] * x[1]) - (upper[0][2] * x[2])) / upper[0][0];
+    // std::cout << x[0] << "\t" << x[1] << "\t" << x[2] << "\n\n"; //x check
 }
 
 int main ()
