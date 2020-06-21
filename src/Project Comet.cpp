@@ -184,6 +184,11 @@ void factorLU()
     double b[n] = {8, 11, 14};
 	double lower[n][n];
 	double upper[n][n];
+
+	cout << " ax1 + bx2 + cx3 = d\n"
+		 << " ex1 + fx2 + gx3 = h\n"
+		 << " ix1 + jx2 + kx3 = l\n";
+		 
     for(int i = 0; i < n; ++i)
     {
         for(int j = 0; j < n; ++j)
@@ -221,24 +226,24 @@ void factorLU()
 		}
 	}
     
-    std::cout << std::setw(6) << "   Lower Triangular"
-              << std::setw(32) << "Upper Triangular\n";
+    cout << setw(6) << "   Lower Triangular"
+         << setw(32) << "Upper Triangular\n";
 
     for(int i = 0; i < n; ++i)
     {
         //lower
         for(int j = 0; j < n; ++j)
         {
-            std::cout << std::setw(6) << lower[i][j] << "\t";
+            cout << setw(6) << lower[i][j] << "\t";
         }
-        std::cout << "\t";
+        cout << "\t";
 
         //upper
         for(int j = 0; j < n; ++j)
         {
-            std::cout << std::setw(6) << upper[i][j] << "\t";
+            cout << setw(6) << upper[i][j] << "\t";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 
     double y[n];
