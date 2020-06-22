@@ -185,9 +185,15 @@ void factorLU()
 	double lower[n][n];
 	double upper[n][n];
 
-	cout << " ax1 + bx2 + cx3 = d\n"
+	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
+	cout << "     LU Factorization      " << endl;
+	cout << "    Doolittle Algorithm    " << endl;
+	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl << endl;
+
+	cout << " Format: 3 variables, 3 equations\n\n"
+		 << " ax1 + bx2 + cx3 = d\n"
 		 << " ex1 + fx2 + gx3 = h\n"
-		 << " ix1 + jx2 + kx3 = l\n";
+		 << " ix1 + jx2 + kx3 = l\n\n";
 
 	cout << "Input a: ";
 	cin >> matrix[0][0];
