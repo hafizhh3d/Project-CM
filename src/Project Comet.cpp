@@ -34,12 +34,12 @@ void menu()
 //                                                   //
 // This Function will calculate the determinant of a //
 // 2x2 Matrix and display the value of the           //
-// calculation on the screen.
+// calculation on the screen.                        //
 //===================================================//
 
 void calc2x2()
 {
-	double num[4]; // Variable for Metrix Index
+	double num[4]; // Variable for Matrix Index
 	double det; // Variable for Determinant
 	
 	cout << endl;
@@ -60,12 +60,60 @@ void calc2x2()
 	cin >> num[2] >> num[3];
 	cout << endl;
 	
-	det = ((num[0]*num[3]) - (num[1]*num[2])); // Calculating Determinant
+	det = ((num[0]*num[3]) - (num[1]*num[2])); // Calculating 2x2 Determinant Matrix
 	
 	cout << endl << left;
-	cout << "Matrix : " << setw(2) << "[" << setw(3) << num[0] << " " << setw(2) << num[1] << setw(2) << "]" << endl;
-	cout << "         " << setw(2) << "[" << setw(3) << num[2] << " " << setw(2) << num[3] << setw(2) << "]" << endl << endl;
+	cout << "Matrix : " << setw(2) << "[" << setw(3) << num[0] << "  " << setw(2) << num[1] << setw(2) << "]" << endl;
+	cout << "         " << setw(2) << "[" << setw(3) << num[2] << "  " << setw(2) << num[3] << setw(2) << "]" << endl << endl;
 	
+	cout << "Determinant = " << det << endl << endl; // Displaying Determinant
+}
+
+//===================================================//
+//                   calc3x3()                       //
+//                 Input = None                      //
+//                 Output = Calculate 3x3 Matrix     // 
+//                          Determinant & Display    //
+//                          them                     //
+//                                                   //
+// This Function will calculate the determinant of a //
+// 3x3 Matrix and display the value of the           //
+// calculation on the screen.                        //
+//===================================================//
+
+void calc3x3()
+{
+	double num[9]; // Variable for Matrix Index
+	double det; // Variable for Determinant
+	
+	cout << endl;
+	cout << "===========================" << endl;
+	cout << "Calculating 3x3 Determinant" << endl;
+	cout << "===========================" << endl << endl;
+	
+	cout << "[a b c]" << endl;
+	cout << "[d e f]" << endl;
+	cout << "[g h i]" << endl << endl;
+	
+	cout << "Example Input :" << endl;
+	cout << "1 2 3" << endl;
+	cout << "4 5 6" << endl;
+	cout << "7 8 9" << endl;
+	
+	cout << endl << endl << "Please input the number based on the example above";
+	cout << " (Ignore the [], Number can be Integer or Fraction) : " << endl;
+	cin >> num[0] >> num[1] >> num[2];
+	cin >> num[3] >> num[4] >> num[5];
+	cin >> num[6] >> num[7] >> num[8];
+	cout << endl;
+	
+	det =  ( (num[0] * ((num[4]*num[8]) - (num[5]*num[7]))) - (num[1] * ((num[3]*num[8]) - (num[5]*num[6]))) + (num[2] * ((num[3]*num[7]) - (num[4]*num[6]))) ); // Calculating 3x3 Determinant Matrix
+	
+	cout << endl << left;
+	cout << "Matrix : " << setw(2) << "[" << setw(3) << num[0] << "  " << setw(3) << num[1] << "  " << setw(3) << num[2] << setw(2) << "]" << endl;
+	cout << "         " << setw(2) << "[" << setw(3) << num[3] << "  " << setw(3) << num[4] << "  " << setw(3) << num[5] << setw(2) << "]" << endl;
+	cout << "         " << setw(2) << "[" << setw(3) << num[6] << "  " << setw(3) << num[7] << "  " << setw(3) << num[8] << setw(2) << "]" << endl << endl;
+		
 	cout << "Determinant = " << det << endl << endl; // Displaying Determinant
 }
 
@@ -110,9 +158,7 @@ void determinantCalc()
 			calc2x2(); // Calling Function calc2x2
 			break;
 		case 2 :
-			cout << "3x3 CALCULATED!!!" << endl;
-			// calc3x3();
-			system("pause"); // Pausing the Program
+			calc3x3(); // Calling Function calc3x3
 			break;
 		default :
 			cout << "Input Not Recogized" << endl;
