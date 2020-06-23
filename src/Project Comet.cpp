@@ -190,10 +190,13 @@ void determinantCalc()
 //===================================================//
 //                     factorLU()                    //
 //                 Input = None                      //
-//                 Output = ...                      //
+//                 Output = Upper LU triangle        //
+//							Lower LU triangle        //
+//							y-value                  //
+//							x-value                  //
 //                                                   //
-// Using Doolittle method                            //
-// ...                                               //
+// This function will calculate the x-value          //
+// using Doolittle Algorithm                         //
 //===================================================//
 
 void factorLU()
