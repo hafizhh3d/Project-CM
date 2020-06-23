@@ -55,7 +55,7 @@ void calc2x2()
 	cout << "3 4" << endl;
 	
 	cout << endl << endl << "Please input the number based on the example above";
-	cout << " (Ignore the [], Number can be Integer or Fraction) : " << endl;
+	cout << " (Ignore the [], Number can be Integer or Decimal) : " << endl;
 	cin >> num[0] >> num[1];
 	cin >> num[2] >> num[3];
 	cout << endl;
@@ -101,7 +101,7 @@ void calc3x3()
 	cout << "7 8 9" << endl;
 	
 	cout << endl << endl << "Please input the number based on the example above";
-	cout << " (Ignore the [], Number can be Integer or Fraction) : " << endl;
+	cout << " (Ignore the [], Number can be Integer or Decimal) : " << endl;
 	cin >> num[0] >> num[1] >> num[2];
 	cin >> num[3] >> num[4] >> num[5];
 	cin >> num[6] >> num[7] >> num[8];
@@ -190,36 +190,43 @@ void factorLU()
 	cout << "    Doolittle Algorithm    " << endl;
 	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl << endl;
 
-	cout << " Format: 3 variables, 3 equations\n\n"
-		 << " ax1 + bx2 + cx3 = d\n"
-		 << " ex1 + fx2 + gx3 = h\n"
-		 << " ix1 + jx2 + kx3 = l\n\n";
+	cout << " a.x1 + b.x2 + c.x3 = d\n"
+		 << " e.x1 + f.x2 + g.x3 = h\n"
+		 << " i.x1 + j.x2 + k.x3 = l\n\n";
 
-	cout << "Input a: ";
+	cout << "Example Input :" << endl
+		 << " 1  2  3  4" << endl
+		 << " 5  6  7  8" << endl
+		 << " 9 10 11 12" << endl;
+	
+	cout << endl << endl << "Please input the number based on the example above"
+		 <<" (Number can be Integer or Decimal):" << endl;
+
+	// cout << "Input a: ";
 	cin >> matrix[0][0];
-	cout << "Input b: ";
+	// cout << "Input b: ";
 	cin >> matrix[0][1];
-	cout << "Input c: ";
+	// cout << "Input c: ";
 	cin >> matrix[0][2];
-	cout << "Input d: ";
+	// cout << "Input d: ";
 	cin >> b[0];
-	cout << "Input e: ";
+	// cout << "Input e: ";
 	cin >> matrix[1][0];
-	cout << "Input f: ";
+	// cout << "Input f: ";
 	cin >> matrix[1][1];
-	cout << "Input g: ";
+	// cout << "Input g: ";
 	cin >> matrix[1][2];
-	cout << "Input h: ";
+	// cout << "Input h: ";
 	cin >> b[1];
-	cout << "Input i: ";
+	// cout << "Input i: ";
 	cin >> matrix[2][0];
-	cout << "Input j: ";
+	// cout << "Input j: ";
 	cin >> matrix[2][1];		 
-	cout << "Input k: ";
+	// cout << "Input k: ";
 	cin >> matrix[2][2];
-	cout << "Input l: ";
+	// cout << "Input l: ";
 	cin >> b[2];
-	cout << "\n";
+	// cout << "\n";
 
     for(int i = 0; i < n; ++i)
     {
@@ -258,7 +265,8 @@ void factorLU()
 		}
 	}
     
-    cout << setw(6) << "   Lower Triangular"
+	//print lower and upper triangular
+    cout << endl << endl << setw(6) << "   Lower Triangular"
          << setw(32) << "Upper Triangular\n";
 
     for(int i = 0; i < n; ++i)
@@ -278,17 +286,20 @@ void factorLU()
         cout << "\n";
     }
 
+	//finding y and x
     double y[n];
     y[0] = lower[0][0] * b[0];
     y[1] = b[1] - (lower[1][0] * y[0]);
     y[2] = b[2] - (lower[2][0] * y[0]) - (lower[2][1] * y[1]);
-    cout << "y: " << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
+	cout << endl;
+    cout << " y: " << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
 
 	double x[n];
 	x[2] = y[2] / upper[2][2];
 	x[1] = (y[1] - (upper[1][2] * x[2])) / upper[1][1];
     x[0] = (y[0] - (upper[0][1] * x[1]) - (upper[0][2] * x[2])) / upper[0][0];
-    cout << "x: " << x[0] << "\t" << x[1] << "\t" << x[2] << "\n\n"; //x check
+	cout << endl;
+    cout << " x: " << x[0] << "\t" << x[1] << "\t" << x[2] << "\n\n"; //x check
 }
 
 int main ()
@@ -327,7 +338,6 @@ int main ()
 				system("pause"); // Pausing the Program
 				break;
 			case 2 :
-				cout << "FACTORIZATING LU!!!" << endl << endl; // JUST TEMPORARY, DELETE AFTER THE FUNCITON WORKING COMPLETELY
 				factorLU(); // Calling Function factorLU
 				system("pause"); // Pausing the Program
 				break;
