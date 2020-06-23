@@ -1,7 +1,28 @@
 #include <iostream>
 #include <iomanip>
+#include <Windows.h>
 
 using namespace std;
+
+//===================================================//
+//                     boot()                        //
+//                 Input = None                      //
+//                 Output = Show Boot Screen         //
+//                                                   //
+// This Function will display the boot screen        //
+//===================================================//
+
+void boot()
+{
+	cout << "       _                               _   _____           _                                   _       " << endl;
+	cout << "      | |                             | | |_   _|         | |                                 | |      " << endl;
+	cout << "      | | ___  _ __   __ _  __ _  ___ | |   | |  _ __  ___| |_ _ __ _   _ _ __ ___   ___ _ __ | |_ ___ " << endl;
+	cout << "  _   | |/ _ \\| '_ \\ / _` |/ _` |/ _ \\| |   | | | '_ \\/ __| __| '__| | | | '_ ` _ \\ / _ \\ '_ \\| __/ __|" << endl;
+	cout << " | |__| | (_) | | | | (_| | (_| | (_) | |  _| |_| | | \\__ \\ |_| |  | |_| | | | | | |  __/ | | | |_\\__ \\" << endl;
+	cout << "  \\____/ \\___/|_| |_|\\__, |\\__, |\\___/|_| |_____|_| |_|___/\\__|_|   \\__,_|_| |_| |_|\\___|_| |_|\\__|___/" << endl;
+	cout << "                      __/ | __/ |                                                                      " << endl;
+	cout << "                     |___/ |___/                                                                       " << endl;
+}
 
 //===================================================//
 //                     menu()                        //
@@ -291,21 +312,23 @@ void factorLU()
     y[0] = lower[0][0] * b[0];
     y[1] = b[1] - (lower[1][0] * y[0]);
     y[2] = b[2] - (lower[2][0] * y[0]) - (lower[2][1] * y[1]);
-	cout << endl;
-    cout << " y: " << y[0] << "\t" << y[1] << "\t" << y[2] << "\n\n"; //y check
+	cout << "\n";
+    cout << " y: [" << y[0] << " " << y[1] << " " << y[2] << "]\n"; //y check
 
 	double x[n];
 	x[2] = y[2] / upper[2][2];
 	x[1] = (y[1] - (upper[1][2] * x[2])) / upper[1][1];
     x[0] = (y[0] - (upper[0][1] * x[1]) - (upper[0][2] * x[2])) / upper[0][0];
-	cout << endl;
-    cout << " x: " << x[0] << "\t" << x[1] << "\t" << x[2] << "\n\n"; //x check
+	cout << "\n";
+    cout << " x: [" << x[0] << " " << x[1] << " " << x[2] << "]\n"; //x check
+	cout << "\n";
 }
 
 int main ()
 {
 	int choice; // Variable for Choice
-	
+	boot();
+	Sleep(5000);
 	//------------------------------------------//
 	//               Do While Loop              //
 	//                                          //
@@ -318,6 +341,7 @@ int main ()
 	do
 	{
 		system("cls"); // Clear The Screen
+		Sleep(1000);
 		menu(); // Calling Function Menu
 		cin >> choice; // User Input for Choice
 		cout << endl;
