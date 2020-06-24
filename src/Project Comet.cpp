@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 #include <Windows.h>
 
 using namespace std;
@@ -324,9 +325,7 @@ void interpolation()
 	
 	int n;
 	double x[7];
-	double totx;
 	double y[7];
-	double toty;
 	double xi;
 	double m[3][4] = {};
 	double b;
@@ -349,6 +348,9 @@ void interpolation()
 	{
 		cin >> y[i];
 	}
+	
+	cout << "Enter Xi value = ";
+	cin >> xi;
 	
 	//cout << "Input Xi = ";
 	//cin >> xi;
@@ -383,6 +385,55 @@ void interpolation()
 	m[0][3] = v[0];
 	m[1][3] = v[1];
 	m[2][3] = v[2];	
+	
+	for (int i = 0; i < 3; i++)            //print the new matrix
+    {
+        for (int j = 0; j <= 3; j++)
+        {
+            cout << left << setw(16) << m[i][j];
+    	}
+    	cout << endl;
+    }   
+    cout << endl;
+    
+	m[0][1] = m[0][1] / m[0][0];
+	m[0][2] = m[0][2] / m[0][0];
+	m[0][3] = m[0][3] / m[0][0];
+	m[0][0] = m[0][0] / m[0][0];
+	
+	// Loop to perform the gauss elimination
+	for (int i = 0; i < 3-1; i++)
+	{           
+        for (int k = i+1; k < 3; k++)
+            {
+                double t = m[k][i] / m[i][i];
+                for (int j = 0 ; j < 4; j++)
+                {
+            		m[k][j] = m[k][j] - t * m[i][j]; // Make the elements below the pivot elements equal to zero or elimnate the variables
+				}   
+            }
+	}
+	
+	for (int i = 0; i < 3; i++)            //print the new matrix
+    {
+        for (int j = 0; j <= 3; j++)
+        {
+            cout << left << setw(16) << m[i][j];
+    	}
+    	cout << endl;
+    }
+    cout << endl;
+    
+    a[2] = m[2][3] / m[2][2];
+	a[1] = (m[1][3] - (m[1][2] * a[2])) / m[1][1];
+	a[0] = (m[0][3] - (m[0][1] * a[1]) - (m[0][2] * a[2])) / m[0][0];
+	
+    cout << "The values of the variables are as follows:" << endl;
+    cout << "P(x) = " << a[2] << "x^2" << " + " << a[1] << "x" << " + " << a[0] << endl;
+    
+    // Xi calculations
+    b = (a[2] * pow(xi, 2)) + (a[1] * xi) + a[0];
+    cout << "P(" << xi << ") = " << b << endl; 
 }
 
 int main ()
@@ -427,8 +478,7 @@ int main ()
 				system("pause"); // Pausing the Program
 				break;
 			case 3 :
-				cout << "INTERPOLATION!!!" << endl << endl; // JUST TEMPORARY, DELETE AFTER THE FUNCITON WORKING COMPLETELY
-				// interpolation(); // Calling Function interpolation
+				interpolation(); // Calling Function interpolation
 				system("pause"); // Pausing the Program
 				break;
 				
