@@ -202,10 +202,8 @@ void determinantCalc()
 void factorLU()
 {
 	const int n = 3;
-	double matrix[n][n] = {{1, 2, 1},
-                        {3, 1, 1},
-                        {1, 4, 2}};
-    double b[n] = {8, 11, 14};
+	double matrix[n][n];
+    double b[n];
 	double lower[n][n];
 	double upper[n][n];
 
@@ -226,31 +224,18 @@ void factorLU()
 	cout << endl << endl << "Please input the number based on the example above"
 		 <<" (Number can be Integer or Decimal):" << endl;
 
-	// cout << "Input a: ";
 	cin >> matrix[0][0];
-	// cout << "Input b: ";
 	cin >> matrix[0][1];
-	// cout << "Input c: ";
 	cin >> matrix[0][2];
-	// cout << "Input d: ";
 	cin >> b[0];
-	// cout << "Input e: ";
 	cin >> matrix[1][0];
-	// cout << "Input f: ";
 	cin >> matrix[1][1];
-	// cout << "Input g: ";
 	cin >> matrix[1][2];
-	// cout << "Input h: ";
 	cin >> b[1];
-	// cout << "Input i: ";
 	cin >> matrix[2][0];
-	// cout << "Input j: ";
 	cin >> matrix[2][1];		 
-	// cout << "Input k: ";
 	cin >> matrix[2][2];
-	// cout << "Input l: ";
 	cin >> b[2];
-	// cout << "\n";
 
     for(int i = 0; i < n; ++i)
     {
