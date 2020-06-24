@@ -372,7 +372,7 @@ void interpolation()
 	}
 	
 	//Matrix form
-	cout << "Matrix" << endl;
+	cout << "\nMatrix" << endl;
 	m[0][0] = s[0];
 	m[0][1] = s[1];
 	m[0][2] = s[2]; 
@@ -429,7 +429,7 @@ void interpolation()
 	a[0] = (m[0][3] - (m[0][1] * a[1]) - (m[0][2] * a[2])) / m[0][0];
 	
     cout << "The values of the variables are as follows:" << endl;
-    cout << "P(x) = " << a[2] << "x^2" << " + " << a[1] << "x" << " + " << a[0] << endl;
+    cout << "P(x) = " << a[2] << ".x^2" << " + " << a[1] << ".x" << " + " << a[0] << endl;
     
     // Xi calculations
     b = (a[2] * pow(xi, 2)) + (a[1] * xi) + a[0];
@@ -493,7 +493,7 @@ int main ()
 			case 4 :
 				cout << "Thank you for using this Program. ^_^" << endl;
 				cout << "Exiting Program..." << endl;
-				exit(1); // Exit the Program;
+				break; // Exit the Program;
 			default :
 				cout << "Input Not Recognized!!!" << endl << endl;
 				system("pause"); // Pausing the Program
