@@ -312,6 +312,79 @@ void factorLU()
 	cout << "\n";
 }
 
+void interpolation()
+{
+	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
+	cout << "       Interpolation       " << endl;
+	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl << endl;
+	
+	cout << "The format will be like this:" << endl;
+	cout << "X| a, b, c, d" << endl;
+	cout << "Y| a, b, c, d" << endl;
+	
+	int n;
+	double x[7];
+	double totx;
+	double y[7];
+	double toty;
+	double xi;
+	double m[3][4] = {};
+	double b;
+	
+	double s[5] = {};
+	double a[3] = {};
+	double v[3] = {};
+	
+	cout << "Enter data count(Max. 7) = ";
+	cin >> n;
+
+	cout << "Enter x values =" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> x[i];
+	}
+	
+	cout << "Enter y values =" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> y[i];
+	}
+	
+	//cout << "Input Xi = ";
+	//cin >> xi;
+	
+	for(int i = 0; i < 5; i++)  // Calculate X Values
+	{
+		for(int j = 0; j < n; j++)
+		{
+			s[i] += pow(x[j], i);
+		}
+	}
+
+	for(int i = 0; i < 3; i++) // Calculate Y Values
+	{
+		for(int j = 0; j < n; j++)
+		{
+			v[i] += pow(x[j], i) * y[j];
+		}
+	}
+	
+	//Matrix form
+	cout << "Matrix" << endl;
+	m[0][0] = s[0];
+	m[0][1] = s[1];
+	m[0][2] = s[2]; 
+	m[1][0] = s[1]; 
+	m[1][1] = s[2];
+	m[1][2] = s[3];
+	m[2][0] = s[2];
+	m[2][1] = s[3]; 
+	m[2][2] = s[4];
+	m[0][3] = v[0];
+	m[1][3] = v[1];
+	m[2][3] = v[2];	
+}
+
 int main ()
 {
 	int choice; // Variable for Choice
