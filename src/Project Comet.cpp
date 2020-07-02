@@ -275,7 +275,7 @@ void factorLU()
 	}
     
 	//print lower and upper triangular
-    cout << endl << endl << setw(6) << "   Lower Triangular"
+    cout << endl << endl << right << setw(6) << "   Lower Triangular"
          << setw(32) << "Upper Triangular\n";
 
     for(int i = 0; i < n; ++i)
